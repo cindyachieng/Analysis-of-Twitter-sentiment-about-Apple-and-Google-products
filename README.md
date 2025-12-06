@@ -102,19 +102,18 @@ Random Forest (~64% Accuracy):
 - Better handles Positive and Negative emotions
 - "I can't tell" class remains poorly predicted
 
-## 7.0 Model Evaluation
-GridSearchCV was used to optimize the Logistic Regression pipeline.
-### 7.1 Parameter Grid Included
-- TF-IDF max_features  
-- Unigram and bigram combinations  
-- Number of SVD components  
-- Regularization strength (C value) for Logistic Regression
+## 7.0 Hyperparameter Tuning with GridSearchCV
+A GridSearchCV approach was applied to Logistic Regression to optimize parameters:
 
-### 7.2 Confusion Matrices
-Visualized misclassifications; majority class (neutral) dominates.
-
-### 7.3 ROC Curves (optional)
-Not included; optional for future work.
+- tfidf__max_features: [3000, 5000]  
+- tfidf__ngram_range: [(1,1), (1,2)]  
+- svd__n_components: [100, 300]  
+- model__C: [0.1, 1, 10]
+### 7.1 Results
+- Accuracy remained around *51%*
+- Majority class still dominates
+- Positive sentiment detected moderately
+- Negative & I can't tell classes poorly predicted
 
 ## 8.0 Deep Learning Approach – LSTM Model
 This section focuses on using a deep learning LSTM model for sentiment analysis of Apple and Google product tweets. The goal is to improve the prediction of minority sentiment classes that are often missed by traditional machine learning models.
